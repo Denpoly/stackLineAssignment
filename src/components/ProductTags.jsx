@@ -17,16 +17,13 @@ function ProductTags() {
     const product = useSelector(getProduct)
         return product && (
         <Grid container className = {classes.gridContainer} style = {{marginTop: "6%"}}
-            spacing = {1}
-        >
+            spacing = {1}>
             {product.tags.map( (tag, index) => {
                 return (
                     <Grid item
-                        key = {index}
-                    >
+                        key = {index}>
                         <Chip
-                            label = {tag}
-                        >
+                            label = {tag}>
                         </Chip>
                     </Grid>
                 )

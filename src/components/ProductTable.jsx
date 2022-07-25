@@ -83,9 +83,7 @@ function ProductTable() {
           columns={columns}
           pageSize = {rows.length}
           getRowId= {(row) => row.weekEnding}
-          hideFooter={true}
-          
-        >
+          hideFooter={true}>
           
         </DataGrid>
       </Card>

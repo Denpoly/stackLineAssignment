@@ -59,8 +59,7 @@ function Graph() {
                 height = '60vh'
                 width = '70vw'
                 data={chartData}
-                options={options}
-            >
+                options={options}>
             </Chart>
         </Card>
     )

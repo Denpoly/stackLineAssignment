@@ -10,8 +10,6 @@ import Header from './components/Header';
 import ProductTable from './components/ProductTable';
 import Graph from './components/Graph';
 
-import './App.css';
-
 const PROD_ID = 'B007TIE0GQ'
 
 const useStyles = makeStyles({
@@ -29,6 +27,13 @@ const useStyles = makeStyles({
     flexDirection: "column",
     maxHeight: "100%",
     marginLeft: "4%"
+  },
+  app: {
+    textAlign: 'center',
+    backgroundColor: '#f7f8fa',
+    minHeight: '100vh',  
+    display: 'flex',
+    flexDirection: 'column'
   }
 })
 
@@ -44,7 +49,7 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className={classes.app}>
         <Header></Header>
         <Box className = {classes.outerContainer}>
           <ProductInfo >

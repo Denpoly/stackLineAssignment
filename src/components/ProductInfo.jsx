@@ -32,8 +32,7 @@ function ProductInfo() {
                 <Box
                     component="img"
                     src = {product.image}
-                    className = {classes.imageContainer}
-                >
+                    className = {classes.imageContainer}>
                 </Box>
                 <Box className = {classes.infoContainer}>
                     <Typography variant = "h5">
@@ -42,7 +41,6 @@ function ProductInfo() {
                     <Typography variant = "subtitle2">
                         {product.subtitle}
                     </Typography>
-
                     <ProductTags>
                     </ProductTags>
                 </Box>
