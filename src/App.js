@@ -1,56 +1,59 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchProductAsync } from './slices/productSlice';
+import { makeStyles } from '@mui/styles';
+import { Box } from '@mui/system';
+
+
+import ProductInfo from './components/ProductInfo';
+import Header from './components/Header';
+import ProductTable from './components/ProductTable';
+import Graph from './components/Graph';
+
 import './App.css';
 
+const PROD_ID = 'B007TIE0GQ'
+
+const useStyles = makeStyles({
+  outerContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    marginTop: "5%",
+    maxHeight: "100%",
+    marginBottom: '5%'
+
+
+  },
+  dataContainer: {
+    display: 'flex',
+    flexDirection: "column",
+    maxHeight: "100%",
+    marginLeft: "4%"
+  }
+})
+
+
 function App() {
+  const classes = useStyles();
+  const dispatch = useDispatch();
+
+
+  useEffect(() => {
+    dispatch(fetchProductAsync(PROD_ID));
+  }, [])
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+        <Header></Header>
+        <Box className = {classes.outerContainer}>
+          <ProductInfo >
+          </ProductInfo>
+          <Box className = {classes.dataContainer}>
+            <Graph></Graph>
+            <ProductTable></ProductTable>
+          </Box>
+        </Box>
     </div>
   );
 }
